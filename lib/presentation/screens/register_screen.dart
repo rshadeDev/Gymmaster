@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +13,7 @@ class RegisterScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'GYMMASTER',
               style: TextStyle(
                 fontSize: 28,
@@ -19,16 +21,16 @@ class RegisterScreen extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.grey[800],
+                color: const Color(0xFF4B6471),
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Column(
                 children: [
-                  Text(
+                  const Text(
                     'Registrarse',
                     style: TextStyle(
                       fontSize: 22,
@@ -36,50 +38,120 @@ class RegisterScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 20),
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Ingresa tu correo',
-                      filled: true,
-                      fillColor: Colors.grey[700],
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+                  const SizedBox(height: 20),
+                  // Campo de correo
+                  Container(
+                    decoration: const BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          offset: Offset(0, 2),
+                          blurRadius: 4,
+                        ),
+                      ],
+                    ),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Ingresa tu correo',
+                        hintStyle: const TextStyle(
+                          color: Colors.white70,
+                        ),
+                        filled: true,
+                        fillColor: const Color(0xFF364650),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
-                  TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: 'Ingresa tu contraseña',
-                      filled: true,
-                      fillColor: Colors.grey[700],
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+                  const SizedBox(height: 20),
+                  // Campo de contraseña
+                  Container(
+                    decoration: const BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          offset: Offset(0, 2),
+                          blurRadius: 4,
+                        ),
+                      ],
+                    ),
+                    child: TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        hintText: 'Ingresa tu contraseña',
+                        hintStyle: const TextStyle(
+                          color: Colors.white70,
+                        ),
+                        filled: true,
+                        fillColor: const Color(0xFF364650),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
+                  Container(
+                    decoration: const BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          offset: Offset(0, 2),
+                          blurRadius: 4,
+                        ),
+                      ],
+                    ),
+                    child: TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        hintText: 'Confirma tu contraseña',
+                        hintStyle: const TextStyle(
+                          color: Colors.white70,
+                        ),
+                        filled: true,
+                        fillColor: const Color(0xFF364650),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
                       // Acción de registro
                     },
-                    child: Text('Registrarse'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey[700],
+                      backgroundColor: const Color(0xFF4B6471),  
+                      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 100),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: const Text(
+                      'Registrarse',
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context); // Vuelve a la pantalla de login
+                Navigator.pop(context);
               },
-              child: Text('Iniciar sesión'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.grey[700],
+                backgroundColor: const Color(0xFF4B6471),
+                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 100),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: const Text(
+                'Iniciar sesión',
+                style: TextStyle(color: Colors.white),
               ),
             ),
           ],
@@ -88,4 +160,3 @@ class RegisterScreen extends StatelessWidget {
     );
   }
 }
-

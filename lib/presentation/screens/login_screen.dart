@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'register_screen.dart';
+import 'profile_screen.dart';
 
 class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +15,7 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'GYMMASTER',
               style: TextStyle(
                 fontSize: 28,
@@ -20,17 +23,16 @@ class LoginScreen extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 20),
-            // Formulario
+            const SizedBox(height: 20),
             Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Color(0xFF4B6471),  // Color del formulario
+                color: const Color(0xFF4B6471),
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Column(
                 children: [
-                  Text(
+                  const Text(
                     'Iniciar Sesión',
                     style: TextStyle(
                       fontSize: 22,
@@ -38,10 +40,9 @@ class LoginScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 20),
-                  // Campo de correo
+                  const SizedBox(height: 20),
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black26,
@@ -53,21 +54,20 @@ class LoginScreen extends StatelessWidget {
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'Ingresa tu correo',
-                        hintStyle: TextStyle(
+                        hintStyle: const TextStyle(
                           color: Colors.white70,
                         ),
                         filled: true,
-                        fillColor: Color(0xFF364650),
+                        fillColor: const Color(0xFF364650),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
-                  // Campo de contraseña
+                  const SizedBox(height: 20),
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black26,
@@ -80,29 +80,29 @@ class LoginScreen extends StatelessWidget {
                       obscureText: true,
                       decoration: InputDecoration(
                         hintText: 'Ingresa tu contraseña',
-                        hintStyle: TextStyle(
+                        hintStyle: const TextStyle(
                           color: Colors.white70,
                         ),
                         filled: true,
-                        fillColor: Color(0xFF364650),
+                        fillColor: const Color(0xFF364650),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
-                  // Hipervínculo "Regístrate aquí" alineado a la derecha
+                  const SizedBox(height: 10),
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => RegisterScreen()),
+                          MaterialPageRoute(
+                              builder: (context) => const RegisterScreen()),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         'Regístrate aquí',
                         style: TextStyle(
                           color: Colors.white,
@@ -113,22 +113,26 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 30),
-            // Botón "Ingresar" centrado
+            const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                // Acción de inicio de sesión
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ProfileScreen()),
+                );
               },
-              child: Text(
-                'Ingresar',
-                style: TextStyle(color: Colors.white),
-              ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF4B6471),  // Color del botón "Ingresar"
-                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 100),
+                backgroundColor: const Color(0xFF4B6471),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 100),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
+              ),
+              child: const Text(
+                'Ingresar',
+                style: TextStyle(color: Colors.white),
               ),
             ),
           ],
