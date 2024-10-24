@@ -25,7 +25,7 @@ class RegisterScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: const Color(0xFF4B6471), // Mismo color del formulario de login
+                color: const Color(0xFF4B6471),
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Column(
@@ -57,7 +57,7 @@ class RegisterScreen extends StatelessWidget {
                           color: Colors.white70,
                         ),
                         filled: true,
-                        fillColor: const Color(0xFF364650), // Mismo color del campo de texto
+                        fillColor: const Color(0xFF364650),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -92,7 +92,6 @@ class RegisterScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  // Campo de confirmación de contraseña
                   Container(
                     decoration: const BoxDecoration(
                       boxShadow: [
@@ -119,13 +118,12 @@ class RegisterScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  // Botón de registro
                   ElevatedButton(
                     onPressed: () {
                       // Acción de registro
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF4B6471),  // Mismo color del botón
+                      backgroundColor: const Color(0xFF4B6471),  
                       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 100),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -140,13 +138,12 @@ class RegisterScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-            // Botón "Iniciar sesión" para regresar a la pantalla de login
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context); // Vuelve a la pantalla de login
+                Navigator.pop(context);
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF4B6471), // Mismo color del botón
+                backgroundColor: const Color(0xFF4B6471),
                 padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 100),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
