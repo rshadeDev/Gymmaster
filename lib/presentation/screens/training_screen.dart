@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'timer_screen.dart';
-import 'home_screen.dart'; // Asegúrate de importar las pantallas correspondientes.
-import 'profile_screen.dart'; // Importa ProfileScreen si no lo tienes ya.
+import 'home_screen.dart';
+import 'profile_screen.dart';
 
 class training_screen extends StatefulWidget {
   @override
