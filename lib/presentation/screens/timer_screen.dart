@@ -4,6 +4,8 @@ import 'package:gymmaster/presentation/screens/home_screen.dart';
 import 'package:gymmaster/presentation/screens/profile_screen.dart';
 
 class timer_screen extends StatefulWidget {
+  const timer_screen({super.key});
+
   @override
   TimerScreenState createState() => TimerScreenState();
 }
@@ -21,7 +23,7 @@ class TimerScreenState extends State<timer_screen> {
   }
 
   void startTimer() {
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (!isPaused) {
         setState(() {
           timePassed++;
@@ -46,9 +48,7 @@ class TimerScreenState extends State<timer_screen> {
   String formatTime(int seconds) {
     int minutes = seconds ~/ 60;
     int secs = seconds % 60;
-    return minutes.toString().padLeft(2, '0') +
-        ":" +
-        secs.toString().padLeft(2, '0');
+    return "${minutes.toString().padLeft(2, '0')}:${secs.toString().padLeft(2, '0')}";
   }
 
   @override
@@ -76,7 +76,7 @@ class TimerScreenState extends State<timer_screen> {
       case 3:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ProfileScreen()),
+          MaterialPageRoute(builder: (context) => const ProfileScreen()),
         );
         break;
     }
@@ -95,7 +95,7 @@ class TimerScreenState extends State<timer_screen> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 IconButton(
-                  icon: Icon(Icons.close, color: Colors.white),
+                  icon: const Icon(Icons.close, color: Colors.white),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -108,20 +108,20 @@ class TimerScreenState extends State<timer_screen> {
             ),
             Column(
               children: [
-                Text(
+                const Text(
                   'Temporizador',
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
                 Text(
                   formatTime(timePassed),
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 48,
                       fontWeight: FontWeight.bold),
                 ),
               ],
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Column(
@@ -155,20 +155,20 @@ class TimerScreenState extends State<timer_screen> {
               children: [
                 ElevatedButton(
                   onPressed: pauseOrResume,
-                  child: Text(isPaused ? 'Resume' : 'Pause'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueGrey,
-                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                   ),
+                  child: Text(isPaused ? 'Resume' : 'Pause'),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 ElevatedButton(
                   onPressed: restartTimer,
-                  child: Text('Restart'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey,
-                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                   ),
+                  child: Text('Restart'),
                 ),
               ],
             ),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'training_screen.dart';
+import 'profile_screen.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,20 +12,20 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
+        leading: const Padding(
+          padding: EdgeInsets.all(8.0),
           child: CircleAvatar(
-            backgroundImage: AssetImage('assets/logo.png'),
+            backgroundImage: AssetImage('assets/logo.jpg'),
           ),
         ),
-        title: Text(
+        title: const Text(
           'Bienvenida',
           style: TextStyle(color: Colors.white, fontSize: 18),
         ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.arrow_forward_ios, color: Colors.blueAccent),
+            icon: const Icon(Icons.arrow_forward_ios, color: Colors.blueAccent),
           ),
         ],
       ),
@@ -32,7 +35,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Entrenamientos',
                 style: TextStyle(
                   color: Colors.white,
@@ -40,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Row(
                 children: [
                   Expanded(
@@ -57,15 +60,15 @@ class HomeScreen extends StatelessWidget {
                         height: 180,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             image: AssetImage('assets/home_screen/cuerpo.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
-                        child: Align(
+                        child: const Align(
                           alignment: Alignment.bottomLeft,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -86,21 +89,21 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   Expanded(
                     child: Container(
                       height: 180,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage('assets/home_screen/poleamen.jpg'),
                           fit: BoxFit.cover,
                         ),
                       ),
-                      child: Align(
+                      child: const Align(
                         alignment: Alignment.bottomLeft,
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -122,11 +125,11 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'Plans Set',
                     style: TextStyle(
                       color: Colors.white,
@@ -136,14 +139,14 @@ class HomeScreen extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       'Ver más',
                       style: TextStyle(color: Colors.blueAccent),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Row(
                 children: [
                   Expanded(
@@ -151,15 +154,15 @@ class HomeScreen extends StatelessWidget {
                       height: 120,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage('assets/home_screen/cuerda.jpg'),
                           fit: BoxFit.cover,
                         ),
                       ),
-                      child: Align(
+                      child: const Align(
                         alignment: Alignment.bottomLeft,
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Cardio',
                             style: TextStyle(color: Colors.white, fontSize: 16),
@@ -168,22 +171,22 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   Expanded(
                     child: Container(
                       height: 120,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage(
                               'assets/home_screen/personalTrainer.webp'),
                           fit: BoxFit.cover,
                         ),
                       ),
-                      child: Align(
+                      child: const Align(
                         alignment: Alignment.bottomLeft,
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Bodybuilding',
                             style: TextStyle(color: Colors.white, fontSize: 16),
@@ -208,6 +211,21 @@ class HomeScreen extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
           unselectedItemColor: Colors.white70,
           selectedItemColor: Colors.white,
+          currentIndex:
+              1,
+          onTap: (index) {
+            if (index == 1) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const HomeScreen()),
+              );
+            } else if (index == 3) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfileScreen()),
+              );
+            }
+          },
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.calendar_today),

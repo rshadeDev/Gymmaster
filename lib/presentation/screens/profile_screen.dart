@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart'; // Import your HomeScreen
+import 'home_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -25,7 +25,7 @@ class ProfileScreen extends StatelessWidget {
             CircleAvatar(
               radius: 50,
               backgroundColor: Colors.grey[800],
-              child: const Icon(Icons.person, size: 50, color: Colors.white),
+              backgroundImage: const AssetImage('assets/logo.jpg'),
             ),
             const SizedBox(height: 10),
             const Text(
@@ -71,7 +71,21 @@ class ProfileScreen extends StatelessWidget {
           elevation: 0,
           type: BottomNavigationBarType.fixed,
           unselectedItemColor: Colors.white70,
-          selectedItemColor: Colors.white,
+          selectedItemColor: Colors.white70,
+          currentIndex: 3,
+          onTap: (index) {
+            if (index == 1) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              );
+            } else if (index == 3) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfileScreen()),
+              );
+            }
+          },
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.calendar_today),
@@ -90,16 +104,6 @@ class ProfileScreen extends StatelessWidget {
               label: '',
             ),
           ],
-          onTap: (index) {
-            if (index == 1) {
-              // Navigate to HomeScreen on tapping the second icon
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomeScreen()),
-              );
-            }
-            // Handle other indices if needed
-          },
         ),
       ),
     );

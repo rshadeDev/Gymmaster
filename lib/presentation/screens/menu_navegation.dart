@@ -4,12 +4,12 @@ class BottomNavigation extends StatelessWidget {
   final int currentIndex;
   final Function(int) onTap;
 
-  BottomNavigation({required this.currentIndex, required this.onTap});
+  const BottomNavigation({super.key, required this.currentIndex, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      items: [
+      items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'Inicio',

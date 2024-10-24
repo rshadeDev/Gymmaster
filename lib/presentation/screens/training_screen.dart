@@ -4,6 +4,8 @@ import 'home_screen.dart';
 import 'profile_screen.dart';
 
 class training_screen extends StatefulWidget {
+  const training_screen({super.key});
+
   @override
   _TrainingScreenState createState() => _TrainingScreenState();
 }
@@ -30,7 +32,7 @@ class _TrainingScreenState extends State<training_screen> {
       case 3:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ProfileScreen()),
+          MaterialPageRoute(builder: (context) => const ProfileScreen()),
         );
         break;
     }
@@ -43,7 +45,7 @@ class _TrainingScreenState extends State<training_screen> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
-        title: Text(
+        title: const Text(
           'Entrenamiento A',
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
@@ -54,7 +56,7 @@ class _TrainingScreenState extends State<training_screen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Lumbar y Pierna',
               style: TextStyle(
                 color: Colors.white,
@@ -62,7 +64,7 @@ class _TrainingScreenState extends State<training_screen> {
                 fontWeight: FontWeight.w300,
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Expanded(
               child: ListView(
                 children: [
@@ -159,7 +161,7 @@ class _TrainingScreenState extends State<training_screen> {
           child: Row(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(12),
                   bottomLeft: Radius.circular(12),
                 ),
@@ -178,16 +180,16 @@ class _TrainingScreenState extends State<training_screen> {
                     children: [
                       Text(
                         title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         reps,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.tealAccent,
                           fontSize: 14,
                         ),
@@ -196,8 +198,8 @@ class _TrainingScreenState extends State<training_screen> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
+              const Padding(
+                padding: EdgeInsets.all(16.0),
                 child: Text(
                   'Ver más',
                   style: TextStyle(
