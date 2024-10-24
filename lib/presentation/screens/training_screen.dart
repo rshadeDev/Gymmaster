@@ -1,6 +1,41 @@
 import 'package:flutter/material.dart';
+import 'timer_screen.dart';
+import 'home_screen.dart'; // Asegúrate de importar las pantallas correspondientes.
+import 'profile_screen.dart'; // Importa ProfileScreen si no lo tienes ya.
 
-class training_screen extends StatelessWidget {
+class training_screen extends StatefulWidget {
+  @override
+  _TrainingScreenState createState() => _TrainingScreenState();
+}
+
+class _TrainingScreenState extends State<training_screen> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        break;
+      case 1:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+        );
+        break;
+      case 2:
+        break;
+      case 3:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ProfileScreen()),
+        );
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,26 +70,31 @@ class training_screen extends StatelessWidget {
                     'Leg Press',
                     '3x 12 a 15',
                     'assets/training_screen/leg_press.jpg',
+                    context,
                   ),
                   _buildExerciseItem(
                     'Leg Extension',
                     '3x 12 a 15',
                     'assets/training_screen/leg_extension.jpg',
+                    null,
                   ),
                   _buildExerciseItem(
                     'Leg Curl',
                     '3x 12 a 15',
                     'assets/training_screen/leg_curl.webp',
+                    null,
                   ),
                   _buildExerciseItem(
                     'Hip Abduction',
                     '3x 12 a 15',
                     'assets/training_screen/hip_abduction.jpg',
+                    null,
                   ),
                   _buildExerciseItem(
                     'Seated Calf Raise',
                     '3x 12 a 15',
                     'assets/training_screen/seated_calf_raise.jpg',
+                    null,
                   ),
                 ],
               ),
@@ -72,6 +112,8 @@ class training_screen extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
           unselectedItemColor: Colors.white70,
           selectedItemColor: Colors.white,
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.calendar_today),
@@ -95,66 +137,77 @@ class training_screen extends StatelessWidget {
     );
   }
 
-  Widget _buildExerciseItem(String title, String reps, String imagePath) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.white.withOpacity(0.2)),
-        ),
-        child: Row(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12),
-                bottomLeft: Radius.circular(12),
+  Widget _buildExerciseItem(
+      String title, String reps, String imagePath, BuildContext? context) {
+    return GestureDetector(
+      onTap: () {
+        if (context != null) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => timer_screen()),
+          );
+        }
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.black,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: Colors.white.withOpacity(0.2)),
+          ),
+          child: Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(12),
+                  bottomLeft: Radius.circular(12),
+                ),
+                child: Image.asset(
+                  imagePath,
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.cover,
+                ),
               ),
-              child: Image.asset(
-                imagePath,
-                width: 100,
-                height: 100,
-                fit: BoxFit.cover,
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        reps,
+                        style: TextStyle(
+                          color: Colors.tealAccent,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-            Expanded(
-              child: Padding(
+              Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      reps,
-                      style: TextStyle(
-                        color: Colors.tealAccent,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
+                child: Text(
+                  'Ver más',
+                  style: TextStyle(
+                    color: Colors.blueAccent,
+                    fontSize: 14,
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                'Ver más',
-                style: TextStyle(
-                  color: Colors.blueAccent,
-                  fontSize: 14,
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
