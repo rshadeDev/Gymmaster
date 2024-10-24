@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'training_screen.dart';
 
-class home_screen extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -196,6 +196,36 @@ class home_screen extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+          canvasColor: Colors.black,
+        ),
+        child: BottomNavigationBar(
+          backgroundColor: Colors.black,
+          elevation: 0,
+          type: BottomNavigationBarType.fixed,
+          unselectedItemColor: Colors.white70,
+          selectedItemColor: Colors.white,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.fitness_center),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: '',
+            ),
+          ],
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home_screen.dart'; // Import your HomeScreen
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -89,6 +90,16 @@ class ProfileScreen extends StatelessWidget {
               label: '',
             ),
           ],
+          onTap: (index) {
+            if (index == 1) {
+              // Navigate to HomeScreen on tapping the second icon
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              );
+            }
+            // Handle other indices if needed
+          },
         ),
       ),
     );
