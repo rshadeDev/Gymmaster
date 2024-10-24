@@ -68,7 +68,7 @@ class TimerScreenState extends State<timer_screen> {
       case 1:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
         );
         break;
       case 2:

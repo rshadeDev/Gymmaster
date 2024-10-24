@@ -24,7 +24,7 @@ class _TrainingScreenState extends State<training_screen> {
       case 1:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
         );
         break;
       case 2:
@@ -50,6 +50,7 @@ class _TrainingScreenState extends State<training_screen> {
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
         centerTitle: true,
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

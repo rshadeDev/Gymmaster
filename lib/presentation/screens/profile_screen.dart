@@ -44,7 +44,7 @@ class ProfileScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: const Text(
-                'Plan Gratis',
+                'Free Course',
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.white,
@@ -56,9 +56,9 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: 10),
             ProfileOptionButton(text: 'Workout Options', onPressed: () {}),
             const SizedBox(height: 10),
-            ProfileOptionButton(text: 'Invitar amigo', onPressed: () {}),
+            ProfileOptionButton(text: 'Invite Friends', onPressed: () {}),
             const SizedBox(height: 10),
-            ProfileOptionButton(text: 'Socio', onPressed: () {}),
+            ProfileOptionButton(text: 'Partner', onPressed: () {}),
           ],
         ),
       ),
@@ -77,7 +77,7 @@ class ProfileScreen extends StatelessWidget {
             if (index == 1) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HomeScreen()),
+                MaterialPageRoute(builder: (context) => const HomeScreen()),
               );
             } else if (index == 3) {
               Navigator.push(
